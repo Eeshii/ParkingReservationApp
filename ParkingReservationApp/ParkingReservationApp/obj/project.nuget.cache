@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "C1SQ450p6v/4rNa0sVnK4MPHEYE6LxsQAS0gv8DmS7MA+Rsc2pfVRjmfj1Lf7Pk18z1cAjSzBffUL/PxFaLnvA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ME\\source\\repos\\ParkingReservationApp\\ParkingReservationApp\\ParkingReservationApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ME\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
