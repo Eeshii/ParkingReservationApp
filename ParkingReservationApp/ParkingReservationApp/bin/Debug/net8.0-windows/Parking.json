@@ -1,23 +1,45 @@
 {
   "ParkingSlots": [
-    "Reniel",
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+    "gahuman",
+    "Bokbok",
+    "earl",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7"
   ],
-  "WaitingQueue": [],
+  "WaitingQueue": [
+    "8"
+  ],
   "ParkingHistory": [
+    "Parked|7|15/29",
+    "Parked|6|15/29",
+    "Parked|5|15/29",
+    "Parked|4|15/29",
+    "Parked|3|15/29",
+    "Parked|2|15/29",
+    "Parked|1|15/29",
+    "Reserved|gahuman|15/29",
+    "Unparked|Reniel|15/29",
+    "Parked|earl|15/28",
+    "Reserved|Bokbok|15/28",
     "Unparked|Bok|16/53",
     "Parked|Bok|16/52",
     "Parked|Reniel|16/52"
   ],
   "ParkedCars": [
-    "Reniel"
+    "gahuman",
+    "Bokbok",
+    "earl",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7"
   ]
 }

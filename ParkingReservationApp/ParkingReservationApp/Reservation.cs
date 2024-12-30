@@ -18,15 +18,15 @@ namespace ParkingReservationApp
     {
         public const string StoreData = "Parking.json";
         // parking slot
-        private string[] parkingSlots;
+        public string[] parkingSlots;
         // waiting list
-        private Queue<string> waitingQueue = new Queue<string>();
+        public Queue<string> waitingQueue = new Queue<string>();
         // history
-        private Stack<string> parkingHistory = new Stack<string>();
+        public Stack<string> parkingHistory = new Stack<string>();
         // for unique plate numbers
-        private HashSet<string> parkedCars = new HashSet<string>();
+        public HashSet<string> parkedCars = new HashSet<string>();
         // specifying parking lot size
-        private int parkingLotSize = 10;
+        public int parkingLotSize = 10;
         public class ParkingData
         {
             public string[] ParkingSlots { get; set; }
@@ -211,15 +211,16 @@ namespace ParkingReservationApp
 
         private void waitingListbtn_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
-            panel2.Visible = true;
+            
+            panel1.Visible = true;
+            panel2.Visible = false;
             panel3.Visible = false;
         }
 
         private void Historybtn_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
-            panel2.Visible = false;
+            panel1.Visible = false;
+            panel2.Visible = true;
             panel3.Visible = false;
         }
 
@@ -230,6 +231,49 @@ namespace ParkingReservationApp
             main.ShowDialog();
         }
 
-        
+        private void ReserveSlot(string plateNumber)
+        {
+            string timeFormat = "HH/mm";
+            if (string.IsNullOrWhiteSpace(plateNumber))
+            {
+                MessageBox.Show("Please enter a valid license plate.");
+                return;
+            }
+            if (parkedCars.Contains(plateNumber))
+            {
+                MessageBox.Show("This car is already parked.");
+                return;
+            }
+
+            for (int i = 0; i < parkingSlots.Length; i++)
+            {
+                if (parkingSlots[i] == null) 
+                {
+                    parkingSlots[i] = plateNumber;
+                    parkedCars.Add(plateNumber);
+                    parkingHistory.Push($"Reserved|{plateNumber}|{DateTime.Now.ToString(timeFormat)}");
+                    MessageBox.Show($"Car {plateNumber} has been parked in Slot {i + 1} (reserved).");
+                    UpdateUI();
+                    return;
+                }
+            }
+
+            waitingQueue.Enqueue(plateNumber);
+            MessageBox.Show("Parking lot is full. Added to the waiting list with priority.");
+            UpdateUI();
+        }
+        private void Reservationbtn_Click(object sender, EventArgs e)
+        {
+            string plateNumber = txtlicense.Text;
+
+            if (string.IsNullOrWhiteSpace(plateNumber))
+            {
+                MessageBox.Show("Please enter a valid license plate.");
+                return;
+            }
+
+            ReserveSlot(plateNumber);
+            txtlicense.Clear();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reservation));
             pictureBox1 = new PictureBox();
             Exitbtn = new PictureBox();
             Historybtn = new PictureBox();
@@ -72,7 +73,7 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.Park_unpbtn;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(85, 179);
+            pictureBox1.Location = new Point(612, 182);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(166, 40);
             pictureBox1.TabIndex = 0;
@@ -84,9 +85,9 @@
             Exitbtn.BackColor = Color.Transparent;
             Exitbtn.BackgroundImage = Properties.Resources.Exitbtn;
             Exitbtn.BackgroundImageLayout = ImageLayout.Zoom;
-            Exitbtn.Location = new Point(125, 395);
+            Exitbtn.Location = new Point(634, 397);
             Exitbtn.Name = "Exitbtn";
-            Exitbtn.Size = new Size(84, 36);
+            Exitbtn.Size = new Size(119, 36);
             Exitbtn.TabIndex = 1;
             Exitbtn.TabStop = false;
             Exitbtn.Click += Exitbtn_Click;
@@ -96,7 +97,7 @@
             Historybtn.BackColor = Color.Transparent;
             Historybtn.BackgroundImage = Properties.Resources.history_button;
             Historybtn.BackgroundImageLayout = ImageLayout.Zoom;
-            Historybtn.Location = new Point(95, 337);
+            Historybtn.Location = new Point(622, 339);
             Historybtn.Name = "Historybtn";
             Historybtn.Size = new Size(144, 43);
             Historybtn.TabIndex = 2;
@@ -108,18 +109,19 @@
             Reservationbtn.BackColor = Color.Transparent;
             Reservationbtn.BackgroundImage = Properties.Resources.Reservation_button;
             Reservationbtn.BackgroundImageLayout = ImageLayout.Zoom;
-            Reservationbtn.Location = new Point(95, 225);
+            Reservationbtn.Location = new Point(625, 228);
             Reservationbtn.Name = "Reservationbtn";
             Reservationbtn.Size = new Size(144, 49);
             Reservationbtn.TabIndex = 3;
             Reservationbtn.TabStop = false;
+            Reservationbtn.Click += Reservationbtn_Click;
             // 
             // waitingListbtn
             // 
             waitingListbtn.BackColor = Color.Transparent;
             waitingListbtn.BackgroundImage = Properties.Resources.waiting_list_button;
             waitingListbtn.BackgroundImageLayout = ImageLayout.Zoom;
-            waitingListbtn.Location = new Point(95, 281);
+            waitingListbtn.Location = new Point(622, 283);
             waitingListbtn.Name = "waitingListbtn";
             waitingListbtn.Size = new Size(144, 50);
             waitingListbtn.TabIndex = 4;
@@ -129,7 +131,7 @@
             // panel1
             // 
             panel1.Controls.Add(waitingGridView);
-            panel1.Location = new Point(298, 12);
+            panel1.Location = new Point(23, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(501, 419);
             panel1.TabIndex = 5;
@@ -141,7 +143,7 @@
             waitingGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             waitingGridView.Location = new Point(0, 0);
             waitingGridView.Name = "waitingGridView";
-            waitingGridView.Size = new Size(501, 419);
+            waitingGridView.Size = new Size(501, 421);
             waitingGridView.TabIndex = 0;
             // 
             // Column1
@@ -157,7 +159,7 @@
             // panel2
             // 
             panel2.Controls.Add(historyGridView);
-            panel2.Location = new Point(298, 12);
+            panel2.Location = new Point(23, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(501, 419);
             panel2.TabIndex = 6;
@@ -169,7 +171,7 @@
             historyGridView.Columns.AddRange(new DataGridViewColumn[] { Column3, Column4, Column5 });
             historyGridView.Location = new Point(0, 0);
             historyGridView.Name = "historyGridView";
-            historyGridView.Size = new Size(501, 419);
+            historyGridView.Size = new Size(504, 419);
             historyGridView.TabIndex = 0;
             // 
             // Column3
@@ -196,10 +198,10 @@
             panel3.Controls.Add(RemoveBtn);
             panel3.Controls.Add(Addbtn);
             panel3.Controls.Add(parkingGridView);
-            panel3.Location = new Point(298, 12);
+            panel3.Location = new Point(23, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(501, 419);
-            panel3.TabIndex = 7;
+            panel3.Size = new Size(504, 421);
+            panel3.TabIndex = 8;
             // 
             // txtlicense
             // 
@@ -243,7 +245,6 @@
             RemoveBtn.Size = new Size(127, 50);
             RemoveBtn.TabIndex = 2;
             RemoveBtn.TabStop = false;
-            RemoveBtn.Click += RemoveBtn_Click;
             // 
             // Addbtn
             // 
@@ -254,7 +255,6 @@
             Addbtn.Size = new Size(127, 50);
             Addbtn.TabIndex = 1;
             Addbtn.TabStop = false;
-            Addbtn.Click += Addbtn_Click;
             // 
             // parkingGridView
             // 
@@ -263,7 +263,7 @@
             parkingGridView.Columns.AddRange(new DataGridViewColumn[] { Column6, Column7, Column8 });
             parkingGridView.Location = new Point(0, 0);
             parkingGridView.Name = "parkingGridView";
-            parkingGridView.Size = new Size(501, 319);
+            parkingGridView.Size = new Size(504, 324);
             parkingGridView.TabIndex = 0;
             // 
             // Column6
@@ -285,7 +285,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Reservationdesign;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(811, 455);
             Controls.Add(panel3);
@@ -334,12 +334,12 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private Panel panel3;
-        private DataGridView parkingGridView;
-        private PictureBox Addbtn;
+        private TextBox txtlicense;
         private Label label2;
         private Label label1;
         private PictureBox RemoveBtn;
-        private TextBox txtlicense;
+        private PictureBox Addbtn;
+        private DataGridView parkingGridView;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
