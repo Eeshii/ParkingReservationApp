@@ -32,24 +32,26 @@
             PassText = new TextBox();
             LoginBTn = new Label();
             ExitBtn = new Label();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // UserText
             // 
             UserText.BackColor = Color.FromArgb(64, 64, 0);
-            UserText.BorderStyle = BorderStyle.None;
+            UserText.BorderStyle = BorderStyle.FixedSingle;
             UserText.Location = new Point(455, 115);
             UserText.Name = "UserText";
-            UserText.Size = new Size(233, 16);
+            UserText.Size = new Size(233, 23);
             UserText.TabIndex = 0;
             // 
             // PassText
             // 
             PassText.BackColor = Color.FromArgb(64, 64, 0);
-            PassText.BorderStyle = BorderStyle.None;
-            PassText.Location = new Point(455, 146);
+            PassText.BorderStyle = BorderStyle.FixedSingle;
+            PassText.Location = new Point(455, 144);
             PassText.Name = "PassText";
-            PassText.Size = new Size(233, 16);
+            PassText.PasswordChar = '•';
+            PassText.Size = new Size(233, 23);
             PassText.TabIndex = 1;
             // 
             // LoginBTn
@@ -78,12 +80,27 @@
             ExitBtn.Text = "Exit";
             ExitBtn.Click += ExitBtn_Click;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.BackColor = Color.Transparent;
+            checkBox1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox1.ForeColor = Color.White;
+            checkBox1.Location = new Point(568, 173);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(120, 18);
+            checkBox1.TabIndex = 4;
+            checkBox1.Text = "Show password";
+            checkBox1.UseVisualStyleBackColor = false;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Logindesign;
             ClientSize = new Size(724, 407);
+            Controls.Add(checkBox1);
             Controls.Add(ExitBtn);
             Controls.Add(LoginBTn);
             Controls.Add(PassText);
@@ -101,5 +118,6 @@
         private TextBox PassText;
         private Label LoginBTn;
         private Label ExitBtn;
+        private CheckBox checkBox1;
     }
 }

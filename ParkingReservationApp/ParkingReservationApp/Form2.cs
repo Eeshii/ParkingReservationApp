@@ -14,6 +14,15 @@ namespace ParkingReservationApp
 {
     public partial class Form2 : Form
     {
+        private string[] parkingSlots;
+        // waiting list
+        private Queue<string> waitingQueue = new Queue<string>();
+        // history
+        private Stack<string> parkingHistory = new Stack<string>();
+        // for unique plate numbers
+        private HashSet<string> parkedCars = new HashSet<string>();
+        // specifying parking lot size
+        private int parkingLotSize = 10;
         public Form2()
         {
             InitializeComponent();
@@ -37,6 +46,7 @@ namespace ParkingReservationApp
                 if (parkingSlots[i] == null)
                 {
                     parkingSlots[i] = plateNumber;
+                    parkingHistory.Push($"Parked|{plateNumber}|{DateTime.Now.ToString(timeFormat)}");
                     parkedCars.Add(plateNumber);
                     UpdateUI();
                     return;
@@ -64,7 +74,7 @@ namespace ParkingReservationApp
                 {
                     parkingSlots[i] = null;
                     parkedCars.Remove(plateNumber);
-                    
+                    parkingHistory.Push($"Unparked|{plateNumber}|{DateTime.Now.ToString(timeFormat)}");
                     MessageBox.Show($"Car {plateNumber} has been removed.");
                     break;
                 }
@@ -79,7 +89,7 @@ namespace ParkingReservationApp
                     {
                         parkingSlots[i] = nextCar;
                         parkedCars.Add(nextCar);
-                       
+                        parkingHistory.Push($"Parked|{nextCar}|{DateTime.Now.ToString(timeFormat)}");
                         MessageBox.Show($"Car {nextCar} has been parked from the waiting list.");
 
                         break;
@@ -118,32 +128,51 @@ namespace ParkingReservationApp
         }
         private void Addbtn_Click(object sender, EventArgs e)
         {
-
+            string plateNumber = txtlicense.Text;
+            ParkCar(plateNumber);
+            txtlicense.Clear();
         }
 
         private void RemoveBtn_Click(object sender, EventArgs e)
         {
-
+            string plateNumber = txtlicense.Text;
+            UnparkCar(plateNumber);
+            txtlicense.Clear();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)//Park UnparkBtn
         {
-
+            unparkandparkpnl.Visible = true;
+            WaitingPnl.Visible = false;
+            panel1.Visible = false;
         }
 
         private void Reservationbtn_Click(object sender, EventArgs e)
         {
+            string plateNumber = txtlicense.Text;
 
+            if (string.IsNullOrWhiteSpace(plateNumber))
+            {
+                MessageBox.Show("Please enter a valid license plate.");
+                return;
+            }
+
+            ReserveSlot(plateNumber);
+            txtlicense.Clear();
         }
 
         private void waitingListbtn_Click(object sender, EventArgs e)
         {
-
+            WaitingPnl.Visible = true;
+            unparkandparkpnl.Visible = false;
+            panel1.Visible = false;
         }
 
         private void Exitbtn_Click(object sender, EventArgs e)
         {
-
+            Form1 main = new Form1();
+            this.Hide();
+            main.ShowDialog();
         }
         private void ReserveSlot(string plateNumber)
         {
@@ -161,7 +190,7 @@ namespace ParkingReservationApp
 
             for (int i = 0; i < parkingSlots.Length; i++)
             {
-                if (parkingSlots[i] == null) 
+                if (parkingSlots[i] == null)
                 {
                     parkingSlots[i] = plateNumber;
                     parkedCars.Add(plateNumber);
@@ -208,6 +237,45 @@ namespace ParkingReservationApp
                 parkingSlots = new string[parkingLotSize];
             }
 
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            parkingSlots = new string[parkingLotSize];
+            LoadData();
+            UpdateUI();
+        }
+        private void SearchPlateNumber(string plateNumber)
+        {
+            if (string.IsNullOrWhiteSpace(plateNumber))
+            {
+                SearchTxtBx.Text = "Please enter a valid license plate.";
+                return;
+            }
+
+            for (int i = 0; i < parkingSlots.Length; i++)
+            {
+                if (parkingSlots[i] != null && parkingSlots[i].Equals(plateNumber, StringComparison.OrdinalIgnoreCase))
+                {
+                    SearchTxtBx.Text = $"Car with plate number {plateNumber} is parked in Slot {i + 1}.";
+                    return;
+                }
+            }
+
+            SearchTxtBx.Text = $"Car with plate number {plateNumber} is not currently parked.";
+        }
+        private void Searchbtn_Click(object sender, EventArgs e)
+        {
+            string plateNumber = SearchTxtBx.Text;
+            SearchPlateNumber(plateNumber);
+            if (string.IsNullOrWhiteSpace(plateNumber)) { SearchTxtBx.Clear();}
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            string plateNumber = SearchTxtBx.Text;
+            SearchPlateNumber(plateNumber);
+            if (string.IsNullOrWhiteSpace(plateNumber)) { SearchTxtBx.Clear(); }
         }
     }
 }

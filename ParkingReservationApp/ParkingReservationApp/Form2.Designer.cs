@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             pictureBox1 = new PictureBox();
             Reservationbtn = new PictureBox();
@@ -49,6 +50,11 @@
             waitingGridView = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            label5 = new Label();
+            Searchbtn = new PictureBox();
+            SearchTxtBx = new TextBox();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Reservationbtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)waitingListbtn).BeginInit();
@@ -59,6 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)parkingGridView).BeginInit();
             WaitingPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)waitingGridView).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Searchbtn).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -259,12 +267,63 @@
             Column2.HeaderText = "License Plate";
             Column2.Name = "Column2";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(Searchbtn);
+            panel1.Controls.Add(SearchTxtBx);
+            panel1.Location = new Point(267, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(453, 380);
+            panel1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Image = Properties.Resources.Btn_layout_removebg_preview;
+            label5.Location = new Point(194, 249);
+            label5.Name = "label5";
+            label5.Size = new Size(66, 18);
+            label5.TabIndex = 2;
+            label5.Text = "Search";
+            label5.Click += label5_Click;
+            // 
+            // Searchbtn
+            // 
+            Searchbtn.BackgroundImage = Properties.Resources.Btn_layout_removebg_preview;
+            Searchbtn.BackgroundImageLayout = ImageLayout.Zoom;
+            Searchbtn.Location = new Point(147, 217);
+            Searchbtn.Name = "Searchbtn";
+            Searchbtn.Size = new Size(161, 83);
+            Searchbtn.TabIndex = 1;
+            Searchbtn.TabStop = false;
+            Searchbtn.Click += Searchbtn_Click;
+            // 
+            // SearchTxtBx
+            // 
+            SearchTxtBx.BackColor = Color.FromArgb(64, 64, 0);
+            SearchTxtBx.BorderStyle = BorderStyle.FixedSingle;
+            SearchTxtBx.Cursor = Cursors.IBeam;
+            SearchTxtBx.Font = new Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SearchTxtBx.ForeColor = SystemColors.ControlText;
+            SearchTxtBx.Location = new Point(33, 143);
+            SearchTxtBx.Name = "SearchTxtBx";
+            SearchTxtBx.Size = new Size(388, 29);
+            SearchTxtBx.TabIndex = 0;
+            SearchTxtBx.TextAlign = HorizontalAlignment.Center;
+            toolTip1.SetToolTip(SearchTxtBx, "Enter Licanse Plate");
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(726, 401);
+            Controls.Add(panel1);
             Controls.Add(WaitingPnl);
             Controls.Add(unparkandparkpnl);
             Controls.Add(Exitbtn);
@@ -274,6 +333,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Reservationbtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)waitingListbtn).EndInit();
@@ -285,6 +345,9 @@
             ((System.ComponentModel.ISupportInitialize)parkingGridView).EndInit();
             WaitingPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)waitingGridView).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Searchbtn).EndInit();
             ResumeLayout(false);
         }
 
@@ -310,5 +373,10 @@
         private DataGridView waitingGridView;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
+        private Panel panel1;
+        private PictureBox Searchbtn;
+        private TextBox SearchTxtBx;
+        private Label label5;
+        private ToolTip toolTip1;
     }
 }

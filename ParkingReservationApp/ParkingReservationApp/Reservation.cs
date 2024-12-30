@@ -18,15 +18,15 @@ namespace ParkingReservationApp
     {
         public const string StoreData = "Parking.json";
         // parking slot
-        public string[] parkingSlots;
+        private string[] parkingSlots;
         // waiting list
-        public Queue<string> waitingQueue = new Queue<string>();
+        private Queue<string> waitingQueue = new Queue<string>();
         // history
-        public Stack<string> parkingHistory = new Stack<string>();
+        private Stack<string> parkingHistory = new Stack<string>();
         // for unique plate numbers
-        public HashSet<string> parkedCars = new HashSet<string>();
+        private HashSet<string> parkedCars = new HashSet<string>();
         // specifying parking lot size
-        public int parkingLotSize = 10;
+        private int parkingLotSize = 10;
         public class ParkingData
         {
             public string[] ParkingSlots { get; set; }

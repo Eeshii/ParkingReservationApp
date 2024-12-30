@@ -9,17 +9,17 @@ namespace ParkingReservationApp
 
         private void Loginbtn_Click(object sender, EventArgs e)//Admin to
         {
-            
-            Reservation Reserve = new Reservation();
+            Login log = new Login();
             this.Hide();
-            Reserve.ShowDialog();
+            log.Show();
+            
         }
 
         private void Addcustomerbtn_Click(object sender, EventArgs e)
         {
-            Login log = new Login();
+            Form2 newform = new Form2();
             this.Hide();
-            log.Show();
+            newform.Show();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace ParkingReservationApp
 
         private void LoginBTn_Click(object sender, EventArgs e)
         {
-            Form2 troll = new Form2();
+            Reservation troll = new Reservation();
             string TextBxUN = UserText.Text;
             string TextBxPW = PassText.Text;
             if (string.IsNullOrWhiteSpace(TextBxUN) || string.IsNullOrWhiteSpace(TextBxPW))
@@ -42,6 +42,18 @@ namespace ParkingReservationApp
 
             }
             else { MessageBox.Show("Login failed!!"); }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PassText.PasswordChar == '•')
+            {
+                PassText.PasswordChar = '\0'; 
+            }
+            else
+            {
+                PassText.PasswordChar = '•'; 
+            }
         }
     }
 }
