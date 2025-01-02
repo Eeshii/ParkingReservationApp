@@ -222,6 +222,7 @@
             label2.Size = new Size(67, 18);
             label2.TabIndex = 4;
             label2.Text = "Remove";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -235,6 +236,7 @@
             label1.Size = new Size(35, 18);
             label1.TabIndex = 3;
             label1.Text = "Add";
+            label1.Click += label1_Click;
             // 
             // RemoveBtn
             // 

@@ -273,9 +273,9 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(Searchbtn);
             panel1.Controls.Add(SearchTxtBx);
-            panel1.Location = new Point(267, 12);
+            panel1.Location = new Point(267, -4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(453, 380);
+            panel1.Size = new Size(453, 396);
             panel1.TabIndex = 10;
             // 
             // label5

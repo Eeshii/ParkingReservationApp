@@ -46,7 +46,7 @@ namespace ParkingReservationApp
         }
         private void ParkCar(string plateNumber)
         {
-            string timeFormat = "HH/mm";
+            string timeFormat = "HH:mm";
             if (string.IsNullOrWhiteSpace(plateNumber))
             {
                 MessageBox.Show("Please enter a valid license plate.");
@@ -78,7 +78,7 @@ namespace ParkingReservationApp
         }
         private void UnparkCar(string plateNumber)
         {
-            string timeFormat = "HH/mm";
+            string timeFormat = "HH:mm";
             if (!parkedCars.Contains(plateNumber))
             {
                 MessageBox.Show("Car not found in the parking lot.");
@@ -211,7 +211,7 @@ namespace ParkingReservationApp
 
         private void waitingListbtn_Click(object sender, EventArgs e)
         {
-            
+
             panel1.Visible = true;
             panel2.Visible = false;
             panel3.Visible = false;
@@ -231,48 +231,24 @@ namespace ParkingReservationApp
             main.ShowDialog();
         }
 
-        private void ReserveSlot(string plateNumber)
-        {
-            string timeFormat = "HH/mm";
-            if (string.IsNullOrWhiteSpace(plateNumber))
-            {
-                MessageBox.Show("Please enter a valid license plate.");
-                return;
-            }
-            if (parkedCars.Contains(plateNumber))
-            {
-                MessageBox.Show("This car is already parked.");
-                return;
-            }
-
-            for (int i = 0; i < parkingSlots.Length; i++)
-            {
-                if (parkingSlots[i] == null) 
-                {
-                    parkingSlots[i] = plateNumber;
-                    parkedCars.Add(plateNumber);
-                    parkingHistory.Push($"Reserved|{plateNumber}|{DateTime.Now.ToString(timeFormat)}");
-                    MessageBox.Show($"Car {plateNumber} has been parked in Slot {i + 1} (reserved).");
-                    UpdateUI();
-                    return;
-                }
-            }
-
-            waitingQueue.Enqueue(plateNumber);
-            MessageBox.Show("Parking lot is full. Added to the waiting list with priority.");
-            UpdateUI();
-        }
+        
         private void Reservationbtn_Click(object sender, EventArgs e)
         {
+            Form3 Reserve = new Form3();
+            this.Hide(); Reserve.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
             string plateNumber = txtlicense.Text;
+            ParkCar(plateNumber);
+            txtlicense.Clear();
+        }
 
-            if (string.IsNullOrWhiteSpace(plateNumber))
-            {
-                MessageBox.Show("Please enter a valid license plate.");
-                return;
-            }
-
-            ReserveSlot(plateNumber);
+        private void label2_Click(object sender, EventArgs e)
+        {
+            string plateNumber = txtlicense.Text;
+            UnparkCar(plateNumber);
             txtlicense.Clear();
         }
     }

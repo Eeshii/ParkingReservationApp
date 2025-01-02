@@ -1,7 +1,7 @@
 {
   "ParkingSlots": [
-    "gahuman",
-    "Bokbok",
+    "8",
+    null,
     "earl",
     "1",
     "2",
@@ -11,10 +11,11 @@
     "6",
     "7"
   ],
-  "WaitingQueue": [
-    "8"
-  ],
+  "WaitingQueue": [],
   "ParkingHistory": [
+    "Unparked|Bokbok|00/00",
+    "Parked|8|00/00",
+    "Unparked|gahuman|00/00",
     "Parked|7|15/29",
     "Parked|6|15/29",
     "Parked|5|15/29",
@@ -31,8 +32,7 @@
     "Parked|Reniel|16/52"
   ],
   "ParkedCars": [
-    "gahuman",
-    "Bokbok",
+    "8",
     "earl",
     "1",
     "2",
