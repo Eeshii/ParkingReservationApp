@@ -22,3 +22,4 @@ C:\Users\ME\source\repos\ParkingReservationApp\ParkingReservationApp\obj\Debug\n
 C:\Users\ME\source\repos\ParkingReservationApp\ParkingReservationApp\obj\Debug\net8.0-windows\ParkingReservationApp.Form2.resources
 C:\Users\ME\source\repos\ParkingReservationApp\ParkingReservationApp\obj\Debug\net8.0-windows\ParkingReservationApp.Login.resources
 C:\Users\ME\source\repos\ParkingReservationApp\ParkingReservationApp\obj\Debug\net8.0-windows\ParkingReservationApp.Form3.resources
+C:\Users\ME\source\repos\ParkingReservationApp\ParkingReservationApp\obj\Debug\net8.0-windows\ParkingReservationApp.Admin.resources

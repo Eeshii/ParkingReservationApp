@@ -27,7 +27,7 @@ namespace ParkingReservationApp
 
         private void LoginBTn_Click(object sender, EventArgs e)
         {
-            Reservation troll = new Reservation();
+            Admin troll = new Admin();
             string TextBxUN = UserText.Text;
             string TextBxPW = PassText.Text;
             if (string.IsNullOrWhiteSpace(TextBxUN) || string.IsNullOrWhiteSpace(TextBxPW))

@@ -53,6 +53,7 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Exitbtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Historybtn).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)RemoveBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Addbtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)parkingGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -169,9 +171,9 @@
             historyGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             historyGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             historyGridView.Columns.AddRange(new DataGridViewColumn[] { Column3, Column4, Column5 });
-            historyGridView.Location = new Point(0, 0);
+            historyGridView.Location = new Point(16, 22);
             historyGridView.Name = "historyGridView";
-            historyGridView.Size = new Size(504, 419);
+            historyGridView.Size = new Size(488, 397);
             historyGridView.TabIndex = 0;
             // 
             // Column3
@@ -192,13 +194,14 @@
             // panel3
             // 
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(pictureBox2);
             panel3.Controls.Add(txtlicense);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(RemoveBtn);
             panel3.Controls.Add(Addbtn);
             panel3.Controls.Add(parkingGridView);
-            panel3.Location = new Point(23, 12);
+            panel3.Location = new Point(23, 10);
             panel3.Name = "panel3";
             panel3.Size = new Size(504, 421);
             panel3.TabIndex = 8;
@@ -263,9 +266,9 @@
             parkingGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             parkingGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             parkingGridView.Columns.AddRange(new DataGridViewColumn[] { Column6, Column7, Column8 });
-            parkingGridView.Location = new Point(0, 0);
+            parkingGridView.Location = new Point(23, 29);
             parkingGridView.Name = "parkingGridView";
-            parkingGridView.Size = new Size(504, 324);
+            parkingGridView.Size = new Size(481, 295);
             parkingGridView.TabIndex = 0;
             // 
             // Column6
@@ -282,6 +285,14 @@
             // 
             Column8.HeaderText = "Status";
             Column8.Name = "Column8";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(459, 407);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
             // 
             // Reservation
             // 
@@ -316,6 +327,7 @@
             ((System.ComponentModel.ISupportInitialize)RemoveBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)Addbtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)parkingGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -345,5 +357,6 @@
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
+        private PictureBox pictureBox2;
     }
 }

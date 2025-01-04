@@ -83,7 +83,7 @@ namespace ParkingReservationApp
         }
         private void SaveReservationToJson(Reservation reservation)
         {
-            var filePath = "Parking.json";
+            var filePath = "Reservation.json";
             var reservations = new List<Reservation>();
 
             if (File.Exists(filePath))

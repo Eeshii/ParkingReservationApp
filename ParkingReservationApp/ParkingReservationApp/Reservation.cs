@@ -226,9 +226,7 @@ namespace ParkingReservationApp
 
         private void Exitbtn_Click(object sender, EventArgs e)
         {
-            Form1 main = new Form1();
-            this.Hide();
-            main.ShowDialog();
+            
         }
 
         

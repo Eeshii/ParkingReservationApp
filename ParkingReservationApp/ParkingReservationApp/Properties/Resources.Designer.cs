@@ -73,6 +73,16 @@ namespace ParkingReservationApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AdminDesignfnl {
+            get {
+                object obj = ResourceManager.GetObject("AdminDesignfnl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Btn_layout_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Btn_layout-removebg-preview", resourceCulture);
