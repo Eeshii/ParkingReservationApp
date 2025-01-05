@@ -105,19 +105,19 @@ namespace ParkingReservationApp
         }
         private void UpdateParkingStatus()
         {
-            waitingQueueGridView.Rows.Clear();
+            waitingGridView.Rows.Clear();
             for (int i = 0; i < parkingSlots.Length; i++)
             {
                 string slotStatus = parkingSlots[i] == null ? "Available" : "Occupied";
                 string plateNumber = parkingSlots[i] ?? "Empty";
                 // adds row to the data grid view
-                waitingQueueGridView.Rows.Add($"Slot {i + 1}", plateNumber, slotStatus);
+                waitingGridView.Rows.Add($"Slot {i + 1}", plateNumber, slotStatus);
             }
         }
         private void ShowPanel(Panel panelToShow)
         {
             historyPanel.Visible = false;
-            waitingPanel.Visible = false;
+            panel1.Visible = false;
             reservationPanel.Visible = false;
 
             panelToShow.Visible = true;
@@ -140,7 +140,7 @@ namespace ParkingReservationApp
 
         private void ParkingQBtn_Click(object sender, EventArgs e)
         {
-            ShowPanel(waitingPanel);
+            ShowPanel(panel1);
             UpdateParkingStatus();
         }
 

@@ -33,11 +33,6 @@
             ParkingQBtn = new PictureBox();
             ExitBtn = new PictureBox();
             historyPanel = new Panel();
-            waitingPanel = new Panel();
-            waitingQueueGridView = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
             historyGridView = new DataGridView();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
@@ -52,16 +47,21 @@
             Column12 = new DataGridViewTextBoxColumn();
             Column13 = new DataGridViewTextBoxColumn();
             Column14 = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            waitingGridView = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)ParkingHistoryBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ReservationLstBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ParkingQBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ExitBtn).BeginInit();
             historyPanel.SuspendLayout();
-            waitingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)waitingQueueGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)historyGridView).BeginInit();
             reservationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)reservationGridView).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)waitingGridView).BeginInit();
             SuspendLayout();
             // 
             // ParkingHistoryBtn
@@ -107,46 +107,11 @@
             // historyPanel
             // 
             historyPanel.BackColor = Color.Transparent;
-            historyPanel.Controls.Add(waitingPanel);
             historyPanel.Controls.Add(historyGridView);
             historyPanel.Location = new Point(8, 3);
             historyPanel.Name = "historyPanel";
             historyPanel.Size = new Size(474, 377);
             historyPanel.TabIndex = 7;
-            // 
-            // waitingPanel
-            // 
-            waitingPanel.BackColor = Color.Transparent;
-            waitingPanel.Controls.Add(waitingQueueGridView);
-            waitingPanel.Location = new Point(0, 0);
-            waitingPanel.Name = "waitingPanel";
-            waitingPanel.Size = new Size(474, 377);
-            waitingPanel.TabIndex = 8;
-            // 
-            // waitingQueueGridView
-            // 
-            waitingQueueGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            waitingQueueGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            waitingQueueGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column6 });
-            waitingQueueGridView.Location = new Point(-10, 0);
-            waitingQueueGridView.Name = "waitingQueueGridView";
-            waitingQueueGridView.Size = new Size(481, 374);
-            waitingQueueGridView.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Slot";
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "License Plate";
-            Column2.Name = "Column2";
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Status";
-            Column6.Name = "Column6";
             // 
             // historyGridView
             // 
@@ -188,7 +153,7 @@
             reservationGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             reservationGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             reservationGridView.Columns.AddRange(new DataGridViewColumn[] { Column7, Column8, Column9, Column10, Column11, Column12, Column13, Column14 });
-            reservationGridView.Location = new Point(0, 0);
+            reservationGridView.Location = new Point(0, 3);
             reservationGridView.Name = "reservationGridView";
             reservationGridView.Size = new Size(471, 374);
             reservationGridView.TabIndex = 0;
@@ -233,12 +198,47 @@
             Column14.HeaderText = "Slot number";
             Column14.Name = "Column14";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(waitingGridView);
+            panel1.Location = new Point(8, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(474, 377);
+            panel1.TabIndex = 9;
+            // 
+            // waitingGridView
+            // 
+            waitingGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            waitingGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            waitingGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column6 });
+            waitingGridView.Location = new Point(3, 4);
+            waitingGridView.Name = "waitingGridView";
+            waitingGridView.Size = new Size(468, 368);
+            waitingGridView.TabIndex = 1;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Slot ";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "License Plate";
+            Column2.Name = "Column2";
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Status";
+            Column6.Name = "Column6";
+            // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.AdminDesignfnl;
             ClientSize = new Size(725, 408);
+            Controls.Add(panel1);
             Controls.Add(reservationPanel);
             Controls.Add(historyPanel);
             Controls.Add(ExitBtn);
@@ -253,11 +253,11 @@
             ((System.ComponentModel.ISupportInitialize)ParkingQBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)ExitBtn).EndInit();
             historyPanel.ResumeLayout(false);
-            waitingPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)waitingQueueGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)historyGridView).EndInit();
             reservationPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)reservationGridView).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)waitingGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -272,11 +272,6 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private Panel waitingPanel;
-        private DataGridView waitingQueueGridView;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column6;
         private Panel reservationPanel;
         private DataGridView reservationGridView;
         private DataGridViewTextBoxColumn Column7;
@@ -287,5 +282,10 @@
         private DataGridViewTextBoxColumn Column12;
         private DataGridViewTextBoxColumn Column13;
         private DataGridViewTextBoxColumn Column14;
+        private Panel panel1;
+        private DataGridView waitingGridView;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column6;
     }
 }
